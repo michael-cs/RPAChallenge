@@ -2,7 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 
 
-def ChromeBrowser(site):
+def chrome_browser(site):
     chrome_options = webdriver.ChromeOptions()
     chrome_options.add_argument('--start-maximized')
     chrome_options.add_argument('--enable-chrome-browser-cloud-management')
@@ -18,11 +18,11 @@ def ChromeBrowser(site):
 
 
 class PageObjects:
-    def IniciaChallenge(driver):
+    def inicia_challenge(driver):
         botao = driver.find_element(By.XPATH, "//button[@class='waves-effect col s12 m12 l12 btn-large uiColorButton']")
         botao.click()
 
-    def ExecutaChallenge(driver, row):
+    def executa_challenge(driver, row):
         textbox = driver.find_element(By.XPATH, "//*[@ng-reflect-name='labelFirstName']")
         textbox.clear()
         textbox.send_keys(row[0])
@@ -55,40 +55,7 @@ class PageObjects:
 
         botao.click()
 
-    def ExecutaChallenge2(driver, role, email, first_name, last_name, phone, company, address):
-        textbox = driver.find_element(By.XPATH, "//input[@ng-reflect-name='labelRole']")
-        textbox.clear()
-        textbox.send_keys(role)
-
-        textbox = driver.find_element(By.XPATH, "//input[@ng-reflect-name='labelEmail']")
-        textbox.clear()
-        textbox.send_keys(email)
-
-        textbox = driver.find_element(By.XPATH, "//*[@ng-reflect-name='labelFirstName']")
-        textbox.clear()
-        textbox.send_keys(first_name)
-
-        textbox = driver.find_element(By.XPATH, "//input[@ng-reflect-name='labelLastName']")
-        textbox.clear()
-        textbox.send_keys(last_name)
-
-        textbox = driver.find_element(By.XPATH, "//input[@ng-reflect-name='labelPhone']")
-        textbox.clear()
-        textbox.send_keys(phone)
-
-        textbox = driver.find_element(By.XPATH, "//input[@ng-reflect-name='labelAddress']")
-        textbox.clear()
-        textbox.send_keys(address)
-
-        textbox = driver.find_element(By.XPATH, "//input[@ng-reflect-name='labelCompanyName']")
-        textbox.clear()
-        textbox.send_keys(company)
-
-        botao = driver.find_element(By.XPATH, "//input[@type='submit']")
-
-        botao.click()
-
-    def ExecutaFakeData(driver):
+    def executa_fake_data(driver):
         first_name = driver.find_element(By.XPATH, '//div[@class="address"]/h3[1]').text.split()[0]
 
         last_name = driver.find_element(By.XPATH, '//div[@class="address"]/h3[1]').text.split()[-1]

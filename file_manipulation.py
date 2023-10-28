@@ -3,7 +3,7 @@ import csv
 import os
 
 
-def LeDadosChallenge(arquivo, index):
+def le_dados_challenge(arquivo, index):
     if list(arquivo)[-1] == 'v':
         data_frame = pd.read_csv(arquivo)
     else:
@@ -20,7 +20,7 @@ def LeDadosChallenge(arquivo, index):
     return [first_name, last_name, company, role, address, email, phone]
 
 
-def CriaCSVFakeData(file_path):
+def cria_csv(file_path):
     header = ['First Name', 'Last Name', 'Company Name', 'Role in Company', 'Address', 'Email', 'Phone Number']
 
     if os.path.exists(file_path):
@@ -31,7 +31,7 @@ def CriaCSVFakeData(file_path):
         writer.writerow(header)
 
 
-def EscreveCSVFakeData(file_path, row):
+def escreve_csv(file_path, row):
     with open((file_path), 'a', encoding='UTF8', newline='') as file:
         writer = csv.writer(file)
         writer.writerow(row)

@@ -1,14 +1,14 @@
-from navigation import ChromeBrowser, PageObjects
-from file_manipulation import CriaCSVFakeData, EscreveCSVFakeData
+from navigation import chrome_browser, PageObjects
+from file_manipulation import cria_csv, escreve_csv
 
 
 site_data = "https://www.fakenamegenerator.com/gen-random-br-br.php"
 file_path = './assets/new_challenge.csv'
 
-driver = ChromeBrowser(site_data)
+driver = chrome_browser(site_data)
 
-CriaCSVFakeData(file_path)
+cria_csv(file_path)
 
 for i in range(10):
-    row = (PageObjects.ExecutaFakeData(driver))
-    EscreveCSVFakeData(file_path, row)
+    row = (PageObjects.executa_fake_data(driver))
+    escreve_csv(file_path, row)

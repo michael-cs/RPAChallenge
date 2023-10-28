@@ -1,16 +1,16 @@
-from navigation import ChromeBrowser, PageObjects
-from file_manipulation import LeDadosChallenge
+from navigation import chrome_browser, PageObjects
+from file_manipulation import le_dados_challenge
 import time
 
 site_challenge = "https://rpachallenge.com"
-driver = ChromeBrowser(site_challenge)
+driver = chrome_browser(site_challenge)
 arquivo = "./assets/new_challenge.csv"
 
-PageObjects.IniciaChallenge(driver)
+PageObjects.inicia_challenge(driver)
 
 for i in range(10):
-    row = LeDadosChallenge(arquivo, i)
-    PageObjects.ExecutaChallenge(driver, row)
+    row = le_dados_challenge(arquivo, i)
+    PageObjects.executa_challenge(driver, row)
 
 
 time.sleep(5)
